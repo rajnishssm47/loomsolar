@@ -2313,3 +2313,851 @@ button {
     height: 290px;
   }
 }
+
+/* ==========================================
+   LOOM SOLAR - PRODUCTS PAGE
+========================================== */
+
+.products-hero {
+  position: relative;
+  min-height: 530px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+  background: #073b27;
+}
+
+.products-hero-image {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=2000&q=85");
+  background-position: center;
+  background-size: cover;
+  animation: heroZoom 25s ease-in-out infinite alternate;
+}
+
+.products-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(3, 36, 23, 0.95),
+    rgba(4, 59, 36, 0.79) 55%,
+    rgba(4, 59, 36, 0.25)
+  );
+}
+
+.products-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 45px;
+  padding-bottom: 85px;
+}
+
+.products-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: rgba(255,255,255,0.72);
+  font-size: 11px;
+  margin-bottom: 48px;
+}
+
+.products-breadcrumb a {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.products-breadcrumb a:hover {
+  color: var(--lime);
+}
+
+.products-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--lime);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 19px;
+}
+
+.products-eyebrow span {
+  width: 25px;
+  height: 2px;
+  background: var(--lime);
+}
+
+.products-hero h1 {
+  max-width: 850px;
+  color: white;
+  font-size: clamp(39px, 5.4vw, 68px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+}
+
+.products-hero h1 span {
+  color: var(--lime);
+}
+
+.products-hero-content > p {
+  max-width: 570px;
+  color: rgba(255,255,255,0.78);
+  font-size: 13px;
+  line-height: 1.9;
+  margin-top: 20px;
+}
+
+.products-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 29px;
+}
+
+.products-hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.products-hero-link:hover {
+  color: var(--lime);
+}
+
+.products-hero-bottom {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 17px max(24px, calc((100% - 1240px) / 2));
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.78);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+/* INTRO */
+
+.products-intro {
+  background: white;
+}
+
+.products-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: end;
+  gap: 70px;
+}
+
+.products-intro-grid .section-title {
+  max-width: 620px;
+}
+
+.products-intro-description {
+  max-width: 460px;
+  margin-left: auto;
+  padding-bottom: 8px;
+}
+
+/* PRODUCT RANGE */
+
+.products-range-section {
+  padding: 25px 0 100px;
+  background: #f5f8f5;
+  scroll-margin-top: 90px;
+}
+
+.products-range-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.products-range-heading .section-title {
+  max-width: 750px;
+  margin: 12px auto 0;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+  align-items: stretch;
+}
+
+.solar-product-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: white;
+  border: 1px solid #e5ece5;
+  border-radius: 7px;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.solar-product-card:hover {
+  transform: translateY(-9px);
+  border-color: rgba(22,132,71,0.5);
+  box-shadow: 0 22px 50px rgba(13,66,35,0.12);
+}
+
+.solar-product-image {
+  position: relative;
+  height: 235px;
+  overflow: hidden;
+  background: #dce9df;
+}
+
+.solar-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.75s ease;
+}
+
+.solar-product-card:hover .solar-product-image img {
+  transform: scale(1.09);
+}
+
+.solar-product-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.12),
+    transparent 35%,
+    rgba(0,36,19,0.48)
+  );
+}
+
+.solar-product-number {
+  position: absolute;
+  z-index: 2;
+  top: 17px;
+  left: 17px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(4,54,33,0.55);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+}
+
+.solar-product-category {
+  position: absolute;
+  z-index: 2;
+  bottom: 17px;
+  left: 19px;
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.solar-product-body {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 23px 23px;
+}
+
+.solar-product-icon {
+  width: 49px;
+  height: 49px;
+  display: grid;
+  place-items: center;
+  margin-top: -51px;
+  margin-bottom: 21px;
+  position: relative;
+  z-index: 3;
+  background: var(--green);
+  color: white;
+  border: 4px solid white;
+  border-radius: 5px;
+  transition: transform 0.35s ease;
+}
+
+.solar-product-card:hover .solar-product-icon {
+  transform: rotate(-7deg) scale(1.07);
+}
+
+.solar-product-body h3 {
+  color: var(--dark);
+  font-size: 19px;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.solar-product-subtitle {
+  min-height: 43px;
+  color: var(--text);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.solar-product-specs {
+  display: grid;
+  gap: 0;
+  margin-top: 21px;
+  border-top: 1px solid var(--border);
+}
+
+.solar-product-specs > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.solar-product-specs span {
+  color: var(--text);
+  font-size: 10px;
+}
+
+.solar-product-specs strong {
+  max-width: 58%;
+  color: var(--dark);
+  font-size: 10px;
+  text-align: right;
+}
+
+.solar-product-features {
+  display: grid;
+  gap: 12px;
+  padding: 19px 0;
+}
+
+.solar-product-features > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: #425849;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.solar-product-features svg {
+  flex-shrink: 0;
+  color: var(--green);
+  margin-top: 1px;
+}
+
+.solar-product-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 17px;
+  border-top: 1px solid var(--border);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  transition: color 0.3s ease;
+}
+
+.solar-product-link svg {
+  transition: transform 0.3s ease;
+}
+
+.solar-product-link:hover {
+  color: #8bbd35;
+}
+
+.solar-product-link:hover svg {
+  transform: translate(4px, -4px);
+}
+
+/* ADVANTAGES */
+
+.products-advantages-section {
+  background: white;
+}
+
+.products-advantages-heading {
+  max-width: 700px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.products-advantages-heading .section-description {
+  margin-top: 15px;
+}
+
+.products-advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 19px;
+}
+
+.products-advantage-card {
+  position: relative;
+  min-height: 230px;
+  padding: 24px 21px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: white;
+  transition: all 0.4s ease;
+}
+
+.products-advantage-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--green);
+  box-shadow: var(--shadow);
+}
+
+.products-advantage-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.products-advantage-icon {
+  width: 51px;
+  height: 51px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  background: var(--green-light);
+  color: var(--green);
+  transition: all 0.35s ease;
+}
+
+.products-advantage-card:hover .products-advantage-icon {
+  color: white;
+  background: var(--green);
+  transform: rotate(-7deg);
+}
+
+.products-advantage-top > span {
+  color: #a5b5a8;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.products-advantage-card h3 {
+  color: var(--dark);
+  font-size: 15px;
+  margin-bottom: 11px;
+}
+
+.products-advantage-card p {
+  color: var(--text);
+  font-size: 11px;
+  line-height: 1.9;
+}
+
+.products-advantage-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--lime);
+  transition: width 0.45s ease;
+}
+
+.products-advantage-card:hover .products-advantage-line {
+  width: 100%;
+}
+
+/* APPLICATIONS */
+
+.products-applications-section {
+  padding: 95px 0;
+  background: #f3f7f3;
+}
+
+.products-applications-heading {
+  max-width: 680px;
+  text-align: center;
+  margin: 0 auto 43px;
+}
+
+.products-applications-heading p {
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.9;
+  margin-top: 15px;
+}
+
+.products-applications-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.products-application-card {
+  display: grid;
+  grid-template-columns: 53px 1fr 20px;
+  align-items: center;
+  gap: 15px;
+  padding: 25px 21px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: white;
+  transition: all 0.35s ease;
+}
+
+.products-application-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--green);
+  box-shadow: var(--shadow);
+}
+
+.products-application-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  color: var(--green);
+  background: var(--green-light);
+}
+
+.products-application-card h3 {
+  color: var(--dark);
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.products-application-card p {
+  color: var(--text);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.products-application-card > svg {
+  color: var(--green);
+  transition: transform 0.3s ease;
+}
+
+.products-application-card:hover > svg {
+  transform: translate(4px, -4px);
+}
+
+/* SELECTION */
+
+.products-selection-section {
+  padding: 100px 0;
+  background: white;
+}
+
+.products-selection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 75px;
+}
+
+.products-selection-image {
+  position: relative;
+  height: 440px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.products-selection-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.products-selection-image:hover img {
+  transform: scale(1.06);
+}
+
+.products-selection-image-caption {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 18px;
+  color: white;
+  background: rgba(4,55,32,0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.products-selection-image-caption svg {
+  color: var(--lime);
+}
+
+.products-selection-content .section-title {
+  max-width: 540px;
+}
+
+.products-selection-content > div > p {
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.9;
+  margin-top: 18px;
+}
+
+.products-selection-points {
+  display: grid;
+  gap: 16px;
+  margin: 27px 0 30px;
+}
+
+.products-selection-points > div {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #405648;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.products-selection-points svg {
+  flex-shrink: 0;
+  color: var(--green);
+}
+
+/* FINAL CTA */
+
+.products-final-cta {
+  padding: 25px 0 85px;
+  background: white;
+}
+
+.products-final-cta-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 49px 55px;
+  border-radius: 6px;
+  background: linear-gradient(110deg, #075b32, #168447);
+  color: white;
+}
+
+.products-final-cta-inner > div > span {
+  color: var(--lime);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.products-final-cta h2 {
+  max-width: 650px;
+  color: white;
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.2;
+  margin-top: 12px;
+}
+
+.products-final-cta h2 strong {
+  color: var(--lime);
+}
+
+.products-final-cta p {
+  margin-top: 12px;
+  color: rgba(255,255,255,0.75);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .products-advantages-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .products-selection-grid {
+    gap: 40px;
+  }
+
+  .products-applications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .products-hero {
+    min-height: 485px;
+  }
+
+  .products-hero-content {
+    padding-top: 30px;
+    padding-bottom: 85px;
+  }
+
+  .products-breadcrumb {
+    margin-bottom: 37px;
+  }
+
+  .products-hero h1 {
+    font-size: clamp(36px, 9.5vw, 49px);
+    letter-spacing: -1.5px;
+  }
+
+  .products-hero-content > p {
+    font-size: 12px;
+  }
+
+  .products-hero-actions {
+    gap: 18px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .products-hero-bottom {
+    padding: 14px 17px;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .products-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .products-intro-description {
+    margin-left: 0;
+  }
+
+  .products-range-section {
+    padding: 10px 0 70px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .solar-product-image {
+    height: 230px;
+  }
+
+  .solar-product-body {
+    padding: 25px 20px 22px;
+  }
+
+  .solar-product-subtitle {
+    min-height: auto;
+  }
+
+  .products-advantages-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .products-advantage-card {
+    min-height: 200px;
+  }
+
+  .products-applications-section {
+    padding: 70px 0;
+  }
+
+  .products-applications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products-application-card {
+    padding: 20px 15px;
+    grid-template-columns: 48px 1fr 18px;
+    gap: 12px;
+  }
+
+  .products-application-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .products-selection-section {
+    padding: 70px 0;
+  }
+
+  .products-selection-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .products-selection-image {
+    height: 310px;
+  }
+
+  .products-final-cta {
+    padding: 10px 0 65px;
+  }
+
+  .products-final-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 34px 23px;
+  }
+
+  .products-final-cta h2 {
+    font-size: 31px;
+  }
+}
+
+@media (max-width: 380px) {
+  .products-hero h1 {
+    font-size: 34px;
+  }
+
+  .products-hero-bottom {
+    font-size: 7px;
+  }
+
+  .solar-product-image {
+    height: 200px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .products-hero-image {
+    animation: none;
+  }
+
+  .solar-product-card,
+  .solar-product-image img,
+  .products-advantage-card,
+  .products-application-card {
+    transition: none;
+  }
+}
