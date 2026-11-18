@@ -4,6 +4,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
+import ChatBot from "./components/ChatBot";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -27,6 +29,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+
       <Navbar />
 
       <Routes>
@@ -39,6 +42,9 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Home />} />
       </Routes>
+
+      <ChatBot />
+      <WhatsAppButton />
 
       <Footer />
     </>
