@@ -12,7 +12,6 @@ import {
   Home as HomeIcon,
   Building2,
   CheckCircle2,
-  Play,
 } from "lucide-react";
 
 import ScrollReveal from "../components/ScrollReveal";
@@ -96,6 +95,13 @@ const benefits = [
   },
 ];
 
+const tickerItems = [
+  "POWERING A GREENER PLANET",
+  "RENEWABLE ENERGY",
+  "BUILDING A SUSTAINABLE FUTURE",
+  "THE FUTURE IS SOLAR",
+];
+
 function Home() {
   return (
     <main className="home-page">
@@ -148,10 +154,12 @@ function Home() {
             <Sun size={19} />
             <span>Clean Energy</span>
           </div>
+
           <div className="hero-bottom-item">
             <Zap size={19} />
             <span>Smart Technology</span>
           </div>
+
           <div className="hero-bottom-item">
             <Leaf size={19} />
             <span>Green Future</span>
@@ -165,18 +173,16 @@ function Home() {
       </section>
 
       {/* ENERGY TICKER */}
-      <section className="energy-ticker">
+      <section className="energy-ticker" aria-label="Our mission">
         <div className="ticker-track">
           {Array.from({ length: 2 }).map((_, index) => (
             <div className="ticker-content" key={index}>
-              <span>POWERING A GREENER PLANET</span>
-              <Sun size={19} />
-              <span>RENEWABLE ENERGY</span>
-              <Sun size={19} />
-              <span>BUILDING A SUSTAINABLE FUTURE</span>
-              <Sun size={19} />
-              <span>THE FUTURE IS SOLAR</span>
-              <Sun size={19} />
+              {tickerItems.map((item, itemIndex) => (
+                <React.Fragment key={`${index}-${itemIndex}`}>
+                  <span>{item}</span>
+                  <Sun size={19} aria-hidden="true" />
+                </React.Fragment>
+              ))}
             </div>
           ))}
         </div>
@@ -194,7 +200,9 @@ function Home() {
                 src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1100&q=85"
                 alt="Solar panels generating renewable energy"
                 className="about-main-image"
+                loading="lazy"
               />
+
               <div className="about-image-label">
                 <Sun size={26} />
                 <div>
@@ -202,6 +210,7 @@ function Home() {
                   <span>For a better tomorrow</span>
                 </div>
               </div>
+
               <div className="about-image-decoration" />
             </div>
           </ScrollReveal>
@@ -209,9 +218,11 @@ function Home() {
           <div className="about-content">
             <ScrollReveal>
               <span className="section-eyebrow">ABOUT LOOM SOLAR</span>
+
               <h2 className="section-title">
                 A Brighter Future Begins With <span>Clean Energy.</span>
               </h2>
+
               <p className="section-description">
                 At LOOM SOLAR, we believe in the power of renewable energy to
                 transform the way the world lives and works. Our focus is on
@@ -226,10 +237,12 @@ function Home() {
                   <CheckCircle2 size={20} />
                   Sustainable energy solutions
                 </div>
+
                 <div>
                   <CheckCircle2 size={20} />
                   Focus on quality and performance
                 </div>
+
                 <div>
                   <CheckCircle2 size={20} />
                   Technology-driven approach
@@ -251,6 +264,7 @@ function Home() {
             <div className="section-heading">
               <div>
                 <span className="section-eyebrow">OUR PRODUCTS</span>
+
                 <h2 className="section-title">
                   Innovative Products.
                   <br />
@@ -271,12 +285,19 @@ function Home() {
                   to={product.link}
                   className="product-card"
                   style={{ "--card-delay": `${index * 120}ms` }}
+                  aria-label={`Explore ${product.title}`}
                 >
                   <div className="product-image">
-                    <img src={product.image} alt={product.title} />
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      loading="lazy"
+                    />
+
                     <span className="product-number">
                       0{index + 1}
                     </span>
+
                     <span className="product-arrow">
                       <ArrowUpRight size={21} />
                     </span>
@@ -286,8 +307,10 @@ function Home() {
                     <span className="product-category">
                       {product.category}
                     </span>
+
                     <h3>{product.title}</h3>
                     <p>{product.description}</p>
+
                     <span className="product-read-more">
                       Explore Product <ArrowRight size={17} />
                     </span>
@@ -305,9 +328,11 @@ function Home() {
           <ScrollReveal>
             <div className="center-heading">
               <span className="section-eyebrow">OUR SOLUTIONS</span>
+
               <h2 className="section-title">
                 Solar Solutions For <span>Every Need.</span>
               </h2>
+
               <p className="section-description">
                 From homes to large-scale industries, discover solar solutions
                 designed for a more energy-efficient future.
@@ -325,10 +350,17 @@ function Home() {
                     to="/solutions"
                     className="solution-card"
                     style={{ "--card-delay": `${index * 130}ms` }}
+                    aria-label={`Discover ${solution.title}`}
                   >
                     <div className="solution-image">
-                      <img src={solution.image} alt={solution.title} />
+                      <img
+                        src={solution.image}
+                        alt={solution.title}
+                        loading="lazy"
+                      />
+
                       <div className="solution-image-overlay" />
+
                       <div className="solution-icon">
                         <Icon size={25} />
                       </div>
@@ -337,6 +369,7 @@ function Home() {
                     <div className="solution-info">
                       <h3>{solution.title}</h3>
                       <p>{solution.description}</p>
+
                       <span>
                         Discover More <ArrowUpRight size={18} />
                       </span>
@@ -359,16 +392,19 @@ function Home() {
               <span className="section-eyebrow light-eyebrow">
                 WHY LOOM SOLAR
               </span>
+
               <h2 className="section-title light-title">
                 More Than Energy.
                 <br />
                 <span>A Better Way Forward.</span>
               </h2>
+
               <p className="why-description">
                 We see solar energy as more than a power source. It is an
                 opportunity to build a cleaner, more resilient and sustainable
                 future for generations to come.
               </p>
+
               <Link to="/about" className="btn btn-primary">
                 Know More About Us <ArrowRight size={18} />
               </Link>
@@ -385,10 +421,12 @@ function Home() {
                     <div className="benefit-icon">
                       <Icon size={27} />
                     </div>
+
                     <div>
                       <h3>{benefit.title}</h3>
                       <p>{benefit.description}</p>
                     </div>
+
                     <span className="benefit-index">
                       0{index + 1}
                     </span>
@@ -406,19 +444,23 @@ function Home() {
           <ScrollReveal>
             <div className="project-cta">
               <div className="project-cta-glow" />
+
               <div className="project-cta-content">
                 <span className="section-eyebrow light-eyebrow">
                   LET'S BUILD A GREENER FUTURE
                 </span>
+
                 <h2>
                   Ready to Make the
                   <br />
                   <span>Switch to Solar?</span>
                 </h2>
+
                 <p>
                   Let's explore the right solar energy solution for your
                   home, business or industry.
                 </p>
+
                 <Link to="/contact" className="btn btn-white">
                   Talk to Our Team <ArrowUpRight size={19} />
                 </Link>
